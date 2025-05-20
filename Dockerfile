@@ -41,5 +41,6 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 # Start Apache
 CMD ["apache2-foreground"]
