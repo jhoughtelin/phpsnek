@@ -1,0 +1,23 @@
+services:
+  battlesnake:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: battlesnake-php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/vendor
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+      - PHP_MEMORY_LIMIT=256M
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_ERROR_REPORTING=E_ALL
+    restart: unless-stopped
+    networks:
+      - battlesnake-network
+
+networks:
+  battlesnake-network:
+    driver: bridge
