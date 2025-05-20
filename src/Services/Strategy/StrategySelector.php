@@ -31,9 +31,9 @@ class StrategySelector
     {
         if (empty($this->strategies)) {
 //            throw new \RuntimeException('No strategies available');
-            $this->strategies[] = new AggressiveStrategy(new AStarPathFinder(), new FloodFill());
-//            $this->strategies[] = new FoodStrategy(new AStarPathFinder(), new FloodFill());
-//            $this->strategies[] = new SurvivalStrategy(new FloodFill());
+        $this->strategies[] = new AggressiveStrategy(new AStarPathFinder(), new FloodFill());
+           $this->strategies[] = new FoodStrategy(new AStarPathFinder(), new FloodFill());
+           $this->strategies[] = new SurvivalStrategy(new FloodFill());
         }
         
         $bestStrategy = null;
