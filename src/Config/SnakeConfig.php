@@ -13,7 +13,7 @@ class SnakeConfig
     public const SNAKE_TAIL = 'replit-notmark';
     
     // Strategy weights
-    public const FOOD_STRATEGY_WEIGHT = 0.7;
+    public const FOOD_STRATEGY_WEIGHT = 2;
     public const SURVIVAL_STRATEGY_WEIGHT = 0.8;
     public const AGGRESSIVE_STRATEGY_WEIGHT = 0.5;
     

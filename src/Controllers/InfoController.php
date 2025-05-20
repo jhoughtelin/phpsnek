@@ -2,6 +2,7 @@
 
 namespace BattleSnake\Controllers;
 
+use BattleSnake\Config\SnakeConfig;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use BattleSnake\Utils\ResponseFormatter;
@@ -16,10 +17,10 @@ class InfoController
     {
         $responseData = [
             'apiversion' => '1',
-            'author' => 'BattleSnakePHP',
-            'color' => '#ff5733',
-            'head' => 'default',
-            'tail' => 'default',
+            'author' => 'Josh Houghtelin',
+            'color' => SnakeConfig::SNAKE_COLOR,
+            'head' => SnakeConfig::SNAKE_HEAD,
+            'tail' => SnakeConfig::SNAKE_TAIL,
             'version' => '1.0.0'
         ];
         

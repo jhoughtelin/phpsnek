@@ -128,7 +128,7 @@ class AggressiveStrategy implements StrategyInterface
         $lengthAdvantageScore = ($totalSnakes - $longerSnakeCount) / $totalSnakes * 0.4;
         
         // Increase score if health is good
-        $healthScore = $you->getHealth() / 100 * 0.3;
+        $healthScore = $you->getHealth() / 100 * 0.1;
         
         return $baseScore + $lengthAdvantageScore + $healthScore;
     }

@@ -2,9 +2,11 @@
 
 namespace BattleSnake\Services\Strategy;
 
+use BattleSnake\Config\SnakeConfig;
 use BattleSnake\Models\GameState;
 use BattleSnake\Services\PathFinding\PathFinderInterface;
 use BattleSnake\Services\SpaceAnalysis\FloodFill;
+use BattleSnake\Utils\Logger;
 
 /**
  * Food seeking strategy - prioritizes finding and eating food
@@ -109,8 +111,11 @@ class FoodStrategy implements StrategyInterface
         $turnBonus = max(0, (50 - $gameState->getTurn()) / 50);
         
         // Length penalty - longer snakes need less food
-        $lengthPenalty = min(1, $you->getLength() / 20);
+        // $lengthPenalty = min(1, $you->getLength() / 20);
+        $lengthPenalty = 0;
         
-        return ($healthScore * 0.7) + ($turnBonus * 0.2) - ($lengthPenalty * 0.1);
+        $score =  ($healthScore * SnakeConfig::FOOD_STRATEGY_WEIGHT) + ($turnBonus * 0.2) - ($lengthPenalty * 0.1);
+        Logger::getLogger()->info('Food strategy score: ' . $score);
+        return $score;
     }
 }
