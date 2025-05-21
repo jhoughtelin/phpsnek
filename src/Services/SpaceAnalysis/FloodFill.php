@@ -74,6 +74,19 @@ class FloodFill
     }
     
     /**
+     * Calculate available space from a single point
+     * 
+     * @param Coord $position Position to calculate space from
+     * @param Board $board Game board
+     * @return int Number of accessible squares
+     */
+    public function calculateAvailableSpace(Coord $position, Board $board): int
+    {
+        // Simply use countAccessibleSquares with no depth limit
+        return $this->countAccessibleSquares($position, $board, 0);
+    }
+    
+    /**
      * Evaluate the available space for each possible move
      * 
      * @param Coord $head Snake head position
